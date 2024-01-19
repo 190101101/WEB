@@ -21,7 +21,7 @@ npm install graphql-ws
 npm install ws
 npm install graphql-subscriptions
 npm install ejs --save
-
+npm install socket.io
 #
 npm install -g create-react-app
 npx create-react-app client

@@ -1,3 +1,5 @@
 npm init -y
-npm init express --save
-npm init nodemon --save
+npm install express --save
+npm install nodemon --save
+npm install socket.io
+npm install [socket.io > 2.3.0]
