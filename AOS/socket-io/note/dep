@@ -1,0 +1,3 @@
+npm init -y
+npm init express --save
+npm init nodemon --save
