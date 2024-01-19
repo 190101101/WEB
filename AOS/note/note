@@ -12,3 +12,4 @@ base\17 follow-app\178 view static ejs
 base\17 follow-app\179 auth controller
 base\17 follow-app\180 auth route
 base\17 follow-app\181 user model
+base\17 follow-app\182 mongoose validation
