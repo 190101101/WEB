@@ -33,12 +33,6 @@
           <div class="d-flex">
             <input
               type="text"
-              id="to"
-              class="text-white form-control bg-dark mr-2"
-              placeholder="to"
-            />
-            <input
-              type="text"
               id="username"
               class="text-white form-control bg-dark mr-2"
               placeholder="username"
@@ -63,27 +57,36 @@
     <script>
       const socket = io.connect("http://localhost:3000");
 
-      const to = document.querySelector("#to");
       const username = document.querySelector("#username");
       const message = document.querySelector("#message");
       const btn = document.querySelector("#btn");
       const block = document.querySelector("#block");
+      const feedback = document.querySelector("#feedback");
 
       btn.addEventListener("click", (e) => {
-        socket.emit("room", {
-          to: to.value,
+        socket.emit("chat", {
           username: username.value,
           message: message.value,
         });
+
         message.value = "";
       });
 
-      socket.on("chat", (data) => {
-        console.log(data);
+      message.addEventListener("focus", (e) => {
+        socket.emit("writing", username.value);
+      });
+
+      socket.on("chat2", (data) => {
         block.innerHTML += `
         <p class="text-white text-bb">
-          #${data.from} : @${data.username} : ${data.message}
+          @${data.username} : ${data.message}
         </p>`;
+        feedback.innerHTML = '';
+      });
+
+      socket.on("writing2", (data) => {
+        feedback.innerHTML = '';
+        feedback.innerHTML += `<p>writing... ${data}</p>`;
       });
     </script>
   </body>

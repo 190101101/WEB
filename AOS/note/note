@@ -4,6 +4,7 @@ base\15 socket-io\163 building
 base\15 socket-io\164 emit
 base\15 socket-io\165 broadcasting
 base\15 socket-io\165 room
+base\15 socket-io\165 user
 
 base\17 follow-app\176 business-follow
 base\17 follow-app\177 create server and db
