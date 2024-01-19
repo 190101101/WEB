@@ -5,3 +5,5 @@ npm install ejs --save
 npm install morgan --save
 npm install validator --save
 npm install bcrypt --save
+npm install body-parser --save
+npm install cookie-parser --save
