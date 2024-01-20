@@ -5,7 +5,7 @@ import User from "./User";
 const Users = (props) => {
   const [usersList, setUsersList] = useState([]);
 
-  const fetchUsers = async (props) => {
+  const fetchUsers = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
     const data = await response.json();
     setUsersList(data);

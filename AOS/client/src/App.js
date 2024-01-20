@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import Users from "./components/Users";
 import Count from "./components/Count";
+import { UserProvider } from "./context/UserContext";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
-  const counterHandler = (userCount) => {
-    setCount(userCount);
-  };
-
   return (
-    <>
-      <Count userCount={count}/>
-      <Users getCount={counterHandler} />
-    </>
+    <UserProvider>
+      <Count />
+      <Users />
+    </UserProvider>
   );
 };
 
