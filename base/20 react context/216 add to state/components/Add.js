@@ -5,12 +5,10 @@ const Add = () => {
   const [usersList, setUsersList] = useContext(UserContext);
 
   const addUser = () => {
+    const id = Math.round(Math.random() * 10000);
     setUsersList([
       ...usersList,
-      {
-        id: Math.random(),
-        username: `user[${Math.round(Math.random() * 10000)}]`,
-      },
+      {id: id, username: `user[${id}]`},
     ]);
   };
 
