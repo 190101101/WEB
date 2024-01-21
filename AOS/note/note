@@ -47,5 +47,5 @@ base\21 book app\218 create context
 base\21 book app\225 show create delete
 base\21 book app\225 add book
 base\21 book app\226 create reducer
-base\21 book app\227 reducer book
+base\21 book app\227 reducer and dispatch
 base\21 book app\228 local storage
