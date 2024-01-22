@@ -1,8 +1,6 @@
 import React, { useState, useRef } from "react";
 
-const Contact = () => {
-  const [formStatus, setFormstatus] = useState(true);
-
+const Form = (props) => {
   const inputRefs = {
     name: useRef(null),
     surname: useRef(null),
@@ -19,15 +17,12 @@ const Contact = () => {
       return values;
     }, {});
 
-    console.log(formStatus);
+    // reset form
+    Object.keys(inputRefs).map((input) => {
+      inputRefs[input].current.value = "";
+    });
 
-    // reset form if status true
-    formStatus &&
-      Object.keys(inputRefs).map((input) => {
-        inputRefs[input].current.value = "";
-      });
-
-    console.log(formData);
+    props.saveData(formData);
   };
 
   return (
@@ -111,4 +106,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Form;
