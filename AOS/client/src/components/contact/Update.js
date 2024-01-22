@@ -1,12 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const Form = (props) => {
+const Update = (props) => {
+
   const inputRefs = {
     name: useRef(null),
     surname: useRef(null),
     email: useRef(null),
     phone: useRef(null),
   };
+
+  useEffect(() => {
+    Object.keys(props.updateData).forEach(key => {
+      if (inputRefs[key] && inputRefs[key].current) {
+        inputRefs[key].current.value = props.updateData[key];
+      }
+    });
+  }, [props.updateData]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -22,12 +31,12 @@ const Form = (props) => {
       inputRefs[input].current.value = "";
     });
 
-    props.saveData(formData);
+    props.update(formData);
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="col-auto">
+      <div className="">
         <div className="input-group mb-2">
           <div className="input-group-prepend">
             <div className="input-group-text">
@@ -43,7 +52,7 @@ const Form = (props) => {
           />
         </div>
       </div>
-      <div className="col-auto">
+      <div className="">
         <div className="input-group mb-2">
           <div className="input-group-prepend">
             <div className="input-group-text">
@@ -60,7 +69,7 @@ const Form = (props) => {
         </div>
       </div>
 
-      <div className="col-auto">
+      <div className="">
         <div className="input-group mb-2">
           <div className="input-group-prepend">
             <div className="input-group-text">
@@ -77,7 +86,7 @@ const Form = (props) => {
         </div>
       </div>
 
-      <div className="col-auto">
+      <div className="">
         <div className="input-group mb-2">
           <div className="input-group-prepend">
             <div className="input-group-text">
@@ -94,16 +103,16 @@ const Form = (props) => {
         </div>
       </div>
 
-      <div className="col-auto">
+      <div className="">
         <button
           type="submit"
           className="btn btn-block btn-outline-success mb-2"
         >
-          register
+          update
         </button>
       </div>
     </form>
   );
 };
 
-export default Form;
+export default Update;
