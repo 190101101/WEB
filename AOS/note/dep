@@ -1,3 +1,10 @@
+#
+npm install -g create-react-app
+npx create-react-app client
+-#create-react-app client
+npm install react-scripts@latest
+#
+
 npm init -y
 npm install express --save
 npm install nodemon --save-dev
@@ -23,9 +30,5 @@ npm install graphql-subscriptions
 npm install ejs --save
 npm install socket.io
 npm install uuid
-#
-npm install -g create-react-app
-npx create-react-app client
--#create-react-app client
-npm install react-scripts@latest
-#
+npm install axios
+npm install react-moment
