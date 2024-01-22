@@ -1,21 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 
-const Update = (props) => {
-
+const Add = (props) => {
   const inputRefs = {
     name: useRef(null),
     surname: useRef(null),
     email: useRef(null),
     phone: useRef(null),
   };
-
-  useEffect(() => {
-    Object.keys(props.updateData).forEach(key => {
-      if (inputRefs[key] && inputRefs[key].current) {
-        inputRefs[key].current.value = props.updateData[key];
-      }
-    });
-  }, [props.updateData]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -31,8 +22,7 @@ const Update = (props) => {
       inputRefs[input].current.value = "";
     });
 
-    formData.id = props.updateData.id;
-    props.update(formData);
+    props.saveDataHandler(formData);
   };
 
   return (
@@ -109,11 +99,11 @@ const Update = (props) => {
           type="submit"
           className="btn btn-block btn-outline-success mb-2"
         >
-          update
+          add
         </button>
       </div>
     </form>
   );
 };
 
-export default Update;
+export default Add;
