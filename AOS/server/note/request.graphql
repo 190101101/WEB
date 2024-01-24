@@ -1,0 +1,26 @@
+{
+  user(id:"1"){
+    id
+    name
+    email
+    age
+  }
+}
+
+{
+  users{
+    id
+    name
+    email
+    age
+  }
+}
+
+mutation {
+  CreateUser(name: "cookie", email: "cookie@gmail.com", age: 7) {
+    id
+    name
+    email
+    age
+  }
+}

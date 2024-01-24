@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js",
-    "json:server": "json-server --watch data.json"
+    "start": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
