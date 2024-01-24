@@ -1,5 +1,5 @@
 npm init -y
 npm install express --save
 npm install nodemon --save
-npm install socket.io
-npm install [socket.io > 2.3.0]
+npm install express-graphql --save
+npm install graphql --save
