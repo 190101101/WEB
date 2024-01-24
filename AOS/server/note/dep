@@ -5,3 +5,5 @@ npm install graphql --save
 npm install apollo-server@2.1.0 --save
 npm install mongoose --save
 npm install dotenv --save
+npm install jsonwebtoken --save
+npm install bcryptjs --save

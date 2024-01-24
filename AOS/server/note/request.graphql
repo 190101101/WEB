@@ -1,44 +1,24 @@
-{
-  user(id:"1"){
+query {
+  articles {
     id
-    name
-    email
-    age
-  }
-}
-
-{
-  users{
-    id
-    name
-    email
-    age
+    article
+    username
   }
 }
 
 mutation {
-  CreateUser(name: "cookie", email: "cookie@gmail.com", age: 7) {
+  register(
+    RegisterInput: {
+      username: "apsi"
+      email: "apsi@gmail.com"
+      password: "zxc123"
+      confirm: "zxc123"
+    }
+  ) {
     id
-    name
+    username
     email
-    age
-  }
-}
-
-mutation {
-  DeleteUser(id: "1") {
-    id
-    name
-    email
-    age
-  }
-}
-
-mutation {
-  UpdateUser(id: "1", name: "apsi", email: "apsi@gmail.com", age: 14) {
-    id
-    name
-    email
-    age
+    token
+    password
   }
 }
