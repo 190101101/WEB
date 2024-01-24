@@ -1,8 +1,18 @@
+//1
 {
   user(id:"1"){
     id
     name
     email
+    age
+  }
+}
+
+//2
+{
+  users{
+    id
+    name
     age
   }
 }
