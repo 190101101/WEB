@@ -67,3 +67,20 @@ mutation {
     article
   }
 }
+
+
+mutation {
+  CreateComment(
+    CreateCommentInput: {
+      articleId: "",
+      comment:"this is first comment"
+    }
+  ) {
+    id
+    article
+    comments{
+      comment
+      username
+    }
+  }
+}
