@@ -22,3 +22,17 @@ mutation {
     password
   }
 }
+
+mutation {
+  login(
+    LoginInput: {
+      username: "apsi"
+      password: "zxc123"
+    }
+  ) {
+    id
+    username
+    email
+    password
+  }
+}
