@@ -10,11 +10,11 @@ mongoose
   .catch((error) => console.log("something wrong"));
 
 const server = new ApolloServer({
-  typeDefs, resolvers,
+  typeDefs,
+  resolvers,
+  context: ({ req }) => ({ req }),
 });
 
 server.listen({ port: 5000 }).then((response) => {
   console.log(`${response.url}graphql`);
 });
-
-

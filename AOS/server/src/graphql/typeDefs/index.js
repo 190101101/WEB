@@ -35,8 +35,13 @@ module.exports = gql`
     password: String!
   }
 
+  input CreateArticleInput{
+    article: String!
+  }
+
   type Mutation {
     register(RegisterInput:RegisterInput): User!
     login(LoginInput:LoginInput): User!
+    CreateArticle(CreateArticleInput:CreateArticleInput): Article!
   }
 `;

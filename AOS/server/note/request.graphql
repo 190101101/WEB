@@ -36,15 +36,24 @@ mutation {
 mutation {
   login(
     LoginInput: {
-      username: "apsi"
-      password: "zxc123"
+      username: "zxc"
+      password: "zxc"
     }
   ) {
     id
     username
     email
     password
+    token
   }
 }
 
-
+mutation {
+  CreateArticle(
+    CreateArticleInput: {
+      article: "hello from cookie"
+    }
+  ) {
+    article
+  }
+}
