@@ -57,3 +57,13 @@ mutation {
     article
   }
 }
+
+mutation {
+  DeleteArticle(
+    DeleteArticleInput: {
+      id: "65b24095761fb09212b12a41"
+    }
+  ) {
+    article
+  }
+}

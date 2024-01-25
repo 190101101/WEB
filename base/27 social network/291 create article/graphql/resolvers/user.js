@@ -55,7 +55,7 @@ module.exports = {
           email: response.email,
         },
         process.env.SECRET_KEY,
-        { expiresIn: "24h" }
+        { expiresIn: "1h" }
       );
 
       return {
@@ -95,7 +95,7 @@ module.exports = {
           email: response.email,
         },
         process.env.SECRET_KEY,
-        { expiresIn: "24h" }
+        { expiresIn: "1h" }
       );
 
       return { ...response._doc, id: response._id, token: token };

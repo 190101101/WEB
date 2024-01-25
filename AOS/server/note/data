@@ -1,0 +1,18 @@
+{
+  "data": {
+    "login": {
+      "id": "65b1fc13a493c96dbbc6391e",
+      "username": "zxc",
+      "email": "zxc@gmail.com",
+      "password": "$2a$12$GWtl9OmY8L9n9U.aBMUZWO6zsL/HqAQzyEbjurfjBdiFfV16C29yC",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YjFmYzEzYTQ5M2M5NmRiYmM2MzkxZSIsInVzZXJuYW1lIjoienhjIiwiZW1haWwiOiJ6eGNAZ21haWwuY29tIiwiaWF0IjoxNzA2MTc5OTE0LCJleHAiOjE3MDYyNjYzMTR9.CQV6zyoETcLusrIBdENcIECvBJn3ZC6BDO7e08U9gf4"
+    }
+  }
+}
+
+{
+  "id": "65b23df18faee239346f5487",
+  "article": "hello from cookie 2",
+  "username": "zxc",
+  "createdAt": "2024-01-25T10:54:41.407Z"
+},

@@ -30,31 +30,14 @@ module.exports = {
 
       const save = await Article.create({
         article: CreateArticleInput.article,
-        user: user.id,
-        username: user.username,
-        createdAt: new Date().toISOString(),
+        user:user.id,
+        username:user.username,
+        createdAt: new Date().toISOString()
       });
 
       const response = await save.save();
 
       return response;
-    },
-    async DeleteArticle(_, { DeleteArticleInput }, context) {
-      const user = auth(context);
-      const article = await Article.findOne({
-        _id: DeleteArticleInput.id,
-        username: user.username,
-      });
-
-      if (!article) {
-        throw new Error("article not found");
-      }
-
-      const response = await Article.deleteOne({
-        _id: DeleteArticleInput.id,
-      });
-
-      return article;
     },
   },
 };

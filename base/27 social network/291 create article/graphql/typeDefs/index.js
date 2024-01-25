@@ -39,14 +39,9 @@ module.exports = gql`
     article: String!
   }
 
-  input DeleteArticleInput{
-    id: String!
-  }
-
   type Mutation {
     register(RegisterInput:RegisterInput): User!
     login(LoginInput:LoginInput): User!
     CreateArticle(CreateArticleInput:CreateArticleInput): Article!
-    DeleteArticle(DeleteArticleInput:DeleteArticleInput): Article!
   }
 `;
