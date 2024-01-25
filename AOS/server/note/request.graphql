@@ -3,6 +3,16 @@ query {
     id
     article
     username
+    createdAt
+  }
+}
+
+query {
+	article(id: "65b137d0c10eb912148b4875s"){
+    id
+    article
+    username
+    createdAt
   }
 }
 
@@ -36,3 +46,5 @@ mutation {
     password
   }
 }
+
+
