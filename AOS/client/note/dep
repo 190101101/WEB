@@ -1,6 +1,3 @@
 npx create-react-app client
-npm install @apollo/react-hooks
-npm install apollo-cache-inmemory
-npm install apollo-link-http
-npm install apollo-client
-npm install react-router-dom
+npm install @apollo/client
+npm install graphql
