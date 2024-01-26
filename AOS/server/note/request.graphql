@@ -8,11 +8,16 @@ query {
 }
 
 query {
-	article(id: "65b137d0c10eb912148b4875s"){
+  article(id: "65b137d0c10eb912148b4875") {
     id
     article
     username
     createdAt
+    comments{
+      id
+      comment
+      username
+    }
   }
 }
 
@@ -34,12 +39,7 @@ mutation {
 }
 
 mutation {
-  login(
-    LoginInput: {
-      username: "zxc"
-      password: "zxc"
-    }
-  ) {
+  login(LoginInput: { username: "zxc", password: "zxc" }) {
     id
     username
     email
@@ -49,12 +49,30 @@ mutation {
 }
 
 mutation {
-  CreateArticle(
-    CreateArticleInput: {
-      article: "hello from cookie"
+  CreateArticle(CreateArticleInput: { article: "hello from cookie" }) {
+    article
+  }
+}
+
+mutation {
+  DeleteArticle(DeleteArticleInput: { id: "65b24095761fb09212b12a41" }) {
+    article
+  }
+}
+
+mutation {
+  CreateComment(
+    CreateCommentInput: {
+      articleId: "65b24095761fb09212b12a41"
+      comment: "this is first comment"
     }
   ) {
+    id
     article
+    comments {
+      comment
+      username
+    }
   }
 }
 
@@ -65,20 +83,26 @@ mutation {
     }
   ) {
     article
+    comments {
+      comment
+      username
+    }
   }
 }
 
-
 mutation {
-  CreateComment(
-    CreateCommentInput: {
-      articleId: "",
-      comment:"this is first comment"
+  DeleteComment(
+    DeleteCommentInput: {
+      id: "65b24095761fb09212b12a41"
+      articleId: "65b137d0c10eb912148b4875"
     }
   ) {
     id
     article
-    comments{
+    username
+    createdAt
+    comments {
+      id
       comment
       username
     }
