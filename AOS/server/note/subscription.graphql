@@ -1,0 +1,8 @@
+subscription {
+  newArticle{
+    id
+    article
+    createdAt
+    username
+  }
+}
