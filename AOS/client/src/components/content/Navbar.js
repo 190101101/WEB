@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const menu = ["Home", "Link"];
+  const menu = ["Home", "Register", 'Login'];
   const [activeLink, setActiveLink] = useState("Home");
 
   return (
@@ -26,7 +27,7 @@ const Navbar = () => {
               onClick={() => setActiveLink(el)}
               className={`nav-item ${activeLink === el ? "active" : ""}`}
             >
-              <a className="nav-link">{el}</a>
+              <Link className="nav-link" to={el}>{el}</Link>
             </li>
           ))}
         </ul>
