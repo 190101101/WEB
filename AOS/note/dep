@@ -41,3 +41,6 @@ npm install react-firebase-hooks
 npx create-react-app client
 npm install @apollo/client
 npm install graphql
+
+npm install react-moment --save
+npm install moment --save
