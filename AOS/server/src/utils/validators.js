@@ -5,16 +5,24 @@ const validateRegisterInput = ({ username, email, password, confirm }) => {
     errors.username = "username is empty";
   }
 
-  if (email.trim() === "" || !email.includes("@")) {
-    errors.email = "email is empty || email type is wrong";
+  if (!email.includes("@")) {
+    errors.email = "email type is wrong";
   }
 
-  if (password.trim() === "" || confirm.trim() == "") {
-    errors.password = "password || confirm is empty";
+  if (email.trim() === "") {
+    errors.email = "email is empty";
+  }
+
+  if (password.trim() === "") {
+    errors.password = "password is empty";
+  }
+
+  if (confirm.trim() == "") {
+    errors.confirm = "confirm is empty";
   }
 
   if (password.trim() !== confirm.trim()) {
-    errors.confirm = "confirm password does not match,";
+    errors.confirm = "confirm and password does not match,";
   }
 
   return {
@@ -40,7 +48,7 @@ const validateLoginInput = ({ username, password }) => {
   };
 };
 
-module.exports = { 
-  validateRegisterInput, 
-  validateLoginInput 
+module.exports = {
+  validateRegisterInput,
+  validateLoginInput,
 };

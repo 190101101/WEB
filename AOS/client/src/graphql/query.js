@@ -9,6 +9,11 @@ export const queryArticles = gql`
       username
       commentCount
       likeCount
+      comments {
+        comment
+        username
+        createdAt
+      }
     }
   }
 `;
