@@ -7,22 +7,22 @@ const initialState = {
 const AuthContext = createContext({
   user: null,
   login: (data) => {},
-  logout: (data) => {},
+  logout: () => {},
 });
 
-const authReducer = (state, action) => {
-  switch (action.type) {
-    case "LOGIN":
-      return { ...state, user: action.payload };
-    case "LOGOUT":
-      return { ...state, user: null };
+const AuthReducer = (state, action) => {
+  switch(action.type){
+    case 'LOGIN':
+      return {...state, user:action.payload};
+    case 'LOGOUT':
+      return {user:null};
     default:
       return state;
   }
 };
 
 const AuthProvider = (props) => {
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [state, dispatch] = useReducer(AuthReducer, initialState);
 
   const login = (data) => {
     dispatch({
@@ -38,11 +38,10 @@ const AuthProvider = (props) => {
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user: state.user, login, logout }}
-      {...props}
-    />
-  );
+    <AuthContext.Provider value={{user: state.user, login, logout}}>
+        {...props}
+    </AuthContext.Provider>
+  )
 };
 
-export {AuthContext, AuthProvider};
+export {AuthProvider, AuthContext};

@@ -7,7 +7,7 @@ const initialState = {
 const AuthContext = createContext({
   user: null,
   login: (data) => {},
-  logout: (data) => {},
+  logout: () => {},
 });
 
 const authReducer = (state, action) => {
@@ -26,7 +26,7 @@ const AuthProvider = (props) => {
 
   const login = (data) => {
     dispatch({
-      type: "Login",
+      type: "LOGIN",
       payload: data,
     });
   };
@@ -38,8 +38,7 @@ const AuthProvider = (props) => {
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user: state.user, login, logout }}
+    <AuthContext.Provider value={{ user: state.user, login, logout }}
       {...props}
     />
   );
