@@ -1,15 +1,12 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../../context/Auth";
-import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../context/Auth";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
-  const location = useLocation();
   const menu = user ? ["Home", "Logout"] : ["Home", "Register", "Login"];
   const [activeLink, setActiveLink] = useState("Home");
-
-  console.log(user);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

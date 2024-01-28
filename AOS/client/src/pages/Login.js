@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../../context/Auth";
+import { AuthContext } from "../context/Auth";
 import { useMutation } from "@apollo/client";
-import { mutationLogin } from "../../graphql/mutation";
-import {Loading, FormError} from "../content/Response";
+import { mutationLogin } from "../graphql/mutation";
+import {Loading, FormError} from "../components/Response";
 
 const initialState = {
   username: "",

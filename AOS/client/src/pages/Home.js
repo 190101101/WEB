@@ -1,8 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { queryArticles } from "../../graphql/query";
-import Card from "../data/Card";
-import {Loading, Error} from "../content/Response";
+import { queryArticles } from "../graphql/query";
+import Card from "../components/Card";
+import {Loading, Error} from "../components/Response";
 
 
 const Home = () => {
