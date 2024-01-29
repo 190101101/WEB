@@ -1,11 +1,16 @@
+const { UserInputError } = require("apollo-server");
 const { Article } = require("../../models");
 const auth = require("../../utils/auth");
+
+const {
+  validateArticleInput,
+} = require("../../utils/validators");
 
 module.exports = {
   Query: {
     async articles() {
       try {
-        return await Article.find();
+        return await Article.find().sort({ createdAt: -1 });
       } catch (error) {
         throw new Error(error);
       }
@@ -27,6 +32,12 @@ module.exports = {
   Mutation: {
     async CreateArticle(_, { CreateArticleInput }, context) {
       const user = auth(context);
+
+      const { errors, valid } = validateArticleInput(CreateArticleInput);
+
+      if (!valid) {
+        throw new UserInputError("Errors", { errors });
+      }
 
       const save = await Article.create({
         article: CreateArticleInput.article,
@@ -85,17 +96,17 @@ module.exports = {
       return article;
     },
   },
-  Article:{
-    likeCount(parent){
-      return parent.likes.length
+  Article: {
+    likeCount(parent) {
+      return parent.likes.length;
     },
-    commentCount(parent){
-      return parent.comments.length
+    commentCount(parent) {
+      return parent.comments.length;
     },
   },
   Subscription: {
     newArticle: {
-      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator("NEW_ARTICLE")
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator("NEW_ARTICLE"),
     },
   },
 };
