@@ -61,7 +61,7 @@ module.exports = gql`
   }
 
   input CreateCommentInput {
-    articleId: String!
+    articleId: ID!
     comment: String!
   }
 

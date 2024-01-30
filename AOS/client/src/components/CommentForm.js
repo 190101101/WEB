@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { MutationCreateArticle } from "../graphql/mutation";
-import { queryArticles } from "../graphql/query";
+import { MutationCreateComment } from "../graphql/mutation";
 import { Loading } from "../components/Response";
 
 const initialState = {
-  article: "",
+  articleId: "",
+  comment: "",
 };
 
-const Form = () => {
+const CommentForm = (props) => {
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState(initialState);
 
-  const [AddArticle, { loading }] = useMutation(MutationCreateArticle, {
-    update(proxy, { data: { CreateArticle: data } }) {
+  const [AddComment, { loading }] = useMutation(MutationCreateComment, {
+    update(proxy, { data: { CreateComment: data } }) {
       setValues(initialState);
     },
     onError(error) {
@@ -23,7 +23,6 @@ const Form = () => {
         console.error("error:", error);
       }
     },
-    refetchQueries: [queryArticles],
   });
 
   const onChange = (e) => {
@@ -32,12 +31,17 @@ const Form = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    AddArticle({ variables: values });
+    AddComment({
+      variables: {
+        articleId: props.data.id,
+        comment: values.comment,
+      },
+    });
     setErrors({});
   };
 
   return (
-    <div>
+    <div className="mb-2">
       <div className="d-flex justify-content-between mb-2">
         <Loading data={{ loading }} />
       </div>
@@ -45,28 +49,28 @@ const Form = () => {
         <div className="form-group">
           <input
             onChange={onChange}
-            value={values.article}
-            name="article"
+            value={values.comment}
+            name="comment"
             type="text"
             className="form-control"
-            id="inputarticle"
-            aria-describedby="articleHelp"
-            placeholder="Enter article"
+            id="inputcomment"
+            aria-describedby="commentHelp"
+            placeholder="Enter comment"
           />
           <small
-            id="articleHelp"
+            id="commentHelp"
             className={`form-text 
-                ${errors.article ? "text-danger" : "text-muted"}`}
+                ${errors.comment ? "text-danger" : "text-muted"}`}
           >
-            {errors.article ? errors.article : "write new article"}
+            {errors.comment ? errors.comment : "write comment"}
           </small>
         </div>
         <button type="submit" className="btn btn-success btn-block">
-          create article
+          comment
         </button>
       </form>
     </div>
   );
 };
 
-export default Form;
+export default CommentForm;
