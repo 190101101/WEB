@@ -1,10 +1,9 @@
+const mongoose = require("mongoose");
 const { UserInputError } = require("apollo-server");
 const { Article } = require("../../models");
 const auth = require("../../utils/auth");
 
-const {
-  validateArticleInput,
-} = require("../../utils/validators");
+const { validateArticleInput } = require("../../utils/validators");
 
 module.exports = {
   Query: {
@@ -17,6 +16,11 @@ module.exports = {
     },
     async article(_, { id }) {
       try {
+        
+      if(!mongoose.Types.ObjectId.isValid(id)){
+        throw new UserInputError("id is not valid");
+      }
+
         const response = await Article.findById(id);
         if (response) {
           return response;
@@ -56,13 +60,14 @@ module.exports = {
     },
     async DeleteArticle(_, { DeleteArticleInput }, context) {
       const user = auth(context);
+
       const article = await Article.findOne({
         _id: DeleteArticleInput.id,
         username: user.username,
       });
 
       if (!article) {
-        throw new Error("article not found");
+        throw new UserInputError("Errors", "article not found");
       }
 
       const response = await Article.deleteOne({
